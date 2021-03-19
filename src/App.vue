@@ -1,30 +1,86 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="container">
+    <GlobalHeader :user="userTestData"></GlobalHeader>
+    <ColumnList :list="testData"></ColumnList>
   </div>
-  <router-view/>
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ColumnList, { ColumnProps } from '@/components/ColumnList.vue'
+import GlobalHeader, { UserProps } from '@/components/GlobalHeader.vue'
+
+const userTestData: UserProps = {
+  isLogin: true,
+  name: '张三',
+  id: 233,
+}
+
+const testData: ColumnProps[] = [
+  {
+    id: 1,
+    title: 'test专栏',
+    description: '这里是test1专栏，有一段非常有意思的简介，可以更新以西哦',
+  },
+  {
+    id: 2,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 3,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 4,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 5,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 6,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 7,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+  {
+    id: 8,
+    title: 'test专栏',
+    description: '这里是test2专栏，有一段非常有意思的简介，可以更新以西哦',
+    avatar: '#',
+  },
+]
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    ColumnList,
+    GlobalHeader,
+  },
+  setup() {
+    return {
+      testData,
+      userTestData,
+    }
+  },
+})
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
